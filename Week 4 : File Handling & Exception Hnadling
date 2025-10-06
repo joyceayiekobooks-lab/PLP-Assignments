@@ -1,0 +1,18 @@
+file = open('file_one.txt', 'r')
+data = file.read()
+
+modified_data = data.upper()
+
+file = open('new_file.txt', 'w')
+file.write(modified_data)
+print(modified_data)
+
+file_name = input("Enter File name:")
+try:
+    with open(file_name, 'r') as file:
+        data = file.read()
+        print(data)
+except FileNotFoundError:
+    print("File not found. Please check the file name.")
+except PermissionError:
+    print("File can't be read!")
