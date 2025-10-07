@@ -1,0 +1,50 @@
+class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def describe(self):
+        print(f"'{self.title}' is written by {self.author} and has {self.pages} pages.")
+
+    def read(self):
+        print(f"You are now reading '{self.title}'. 📖")
+
+class EBook(Book):
+    def __init__(self, title, author, pages, file_size):
+        super().__init__(title, author, pages)
+        self.file_size = file_size
+
+    def describe(self):
+        print(f"'{self.title}' is an eBook by {self.author}, {self.pages} pages, {self.file_size}MB in size.")
+
+book1 = Book("Born a Crime", "Trevor Noah", 285)
+ebook1 = EBook("Becoming", "Michelle Obama", 400, 5)
+
+book1.describe()
+ebook1.describe()
+book1.read()
+
+
+# Activity 2: Polymorphism Challenge! 
+
+class Animal:
+    def move(self):
+        print("The animal moves.")
+
+class Bird(Animal):
+    def move(self):
+        print("The bird flies. 🕊️")
+
+class Fish(Animal):
+    def move(self):
+        print("The fish swims. 🐟")
+
+class Dog(Animal):
+    def move(self):
+        print("The dog runs. 🐕")
+
+animals = [Bird(), Fish(), Dog()]
+
+for animal in animals:
+    animal.move()
